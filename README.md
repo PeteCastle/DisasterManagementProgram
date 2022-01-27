@@ -1,4 +1,4 @@
-# DisasterManagmentProgram
+# DisasterManagrmentProgram
 BACKGROUND OF THE PROJECT TOPIC
 
 The modern world is ruled over by technology and inventions that take humanity to its peak capacity, but little do we notice that there is another player in this eternal development, the yin to the yang, and those are what we call natural phenomena or as we in the Philippines call it by the name we frighteningly live upon, Natural Disasters.

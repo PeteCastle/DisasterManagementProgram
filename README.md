@@ -1,5 +1,5 @@
-# DisasterManagementProgram
-BACKGROUND OF THE PROJECT TOPIC
+## DisasterManagementProgram
+# BACKGROUND OF THE PROJECT TOPIC
 
 The modern world is ruled over by technology and inventions that take humanity to its peak capacity, but little do we notice that there is another player in this eternal development, the yin to the yang, and those are what we call natural phenomena or as we in the Philippines call it by the name we frighteningly live upon, Natural Disasters.
 
@@ -10,7 +10,7 @@ The main impetus of our Case Project Study is to serve our fellow countrymen. No
 
 TOPICS AND SUBJECT MATTERS IN USED IN THE PROJECT
 
-**Searching Algorithms**
+#Searching Algorithms
 The program uses Linear Searching Algorithm to determine whether the user input is found in the array.   This is used in Location Finder - one of the highlighting features of the program - (1) when searching for the shortest path using Dijkstra's Algorithm; (2) asking for user’s input of a specific location and checking the array whether the location exists or not.  It is also used when searching for the available list of supplies.  If it exists, the user is meant to add a certain quantity of supplies.  If not, the program assumes it is a new item.  The algorithm is also present in other parts of the program.
 
 int search(struct Vertex Vertices[], string locationChoice, string subLocationChoice, int maxVertexCount, int switchCase, int row){
@@ -33,7 +33,7 @@ int search(struct Vertex Vertices[], string locationChoice, string subLocationCh
 
 Linear Search algorithm in determining whether the user input of location is present on the list.
 
-**Arrays and Vectors**
+#Arrays and Vectors
 The program uses arrays and vectors in order to store, add, and retrieve data (recipients, list of supplies, and list of locations).  
 
 extern vector<recipientsList> Recipient;
@@ -42,7 +42,7 @@ struct Vertex Vertices[maxVertexCount];
 int connectedVertices[maxVertexCount*maxVertexCount];
 
 
-**Structures**
+#Structures
 Each recipient, supply, and location indices contain different types of information (such as name, quantity, age, province, barangay, and island) which is defined in the program through the use of structures.
 	
 struct recipientsList{
@@ -62,10 +62,10 @@ struct Vertex {
 };
 
 
-**Queues**
+#Queues
 The program is used to serve the recipients using the First in, First Out algorithm.  The figure below shows the queue of a location in the Philippine island of Masbate.  The program also shows who the previous recipient is, the current recipient, and the next recipient.  Note that as more recipients are added to the list, their queue number is unique to them.
 
-**Pointers**
+#Pointers
 Pointers are used in the program in conjunction with queues to serve the recipients while modifying the variable currentQueue and lastQueue across different methods as well as other features in graph-related functions.
 void nextRecipient(int *currentQueue, int *lastQueue){ //Enqueue
 	if(checkSupply()){
@@ -76,26 +76,26 @@ void nextRecipient(int *currentQueue, int *lastQueue){ //Enqueue
 ...
 
 
-**File Manipulation**
+#File Manipulation
 Another key defining feature of this program is the use of Files Manipulation to save information for later use.  The program is designed to be used simultaneously across devices (assuming that everyone uses the same directory whether in local network or web) regardless of their location without any form of duplication and inaccurate amount of supplies.  Every time the list is modified, the file is automatically saved, and the program itself updates the list from the current file.
 	
-void saveRecipientFile(){
-	ofstream PrintFile;
-	PrintFile.open(RecipientsFile.c_str(), ios::out);
-	
-	for(int i=0; i<Recipient.size();i++){
-		PrintFile << Recipient[i].firstName << "\t" << Recipient[i].lastName << "\t" << Recipient[i].age << "\t" << Recipient[i].queueNumber << endl;
+	void saveRecipientFile(){
+		ofstream PrintFile;
+		PrintFile.open(RecipientsFile.c_str(), ios::out);
+
+		for(int i=0; i<Recipient.size();i++){
+			PrintFile << Recipient[i].firstName << "\t" << Recipient[i].lastName << "\t" << Recipient[i].age << "\t" << Recipient[i].queueNumber << endl;
+		}
+		PrintFile.close();
 	}
-	PrintFile.close();
-}
-void readSuppliesList(){
-	ifstream suppliesFile(SuppliesFile.c_str());
-	string line;
-	int i=0;
-	if(!suppliesFile.is_open()) {
-     	cout<<"File " << SuppliesFile << " not found.  Make sure the .dat files are downloaded." << endl;
-     	throw exception();
-}
+	void readSuppliesList(){
+		ifstream suppliesFile(SuppliesFile.c_str());
+		string line;
+		int i=0;
+		if(!suppliesFile.is_open()) {
+		cout<<"File " << SuppliesFile << " not found.  Make sure the .dat files are downloaded." << endl;
+		throw exception();
+	}
 
 Graphs
 	Since the program uses maps to search for the shortest path from either the evacuation center or user-defined location to a certain destination, the group uses graphs where each barangay (sublocation) is a vertex that is under a cluster called (location) or the municipality it belongs to.  The graph also contains a graphical view within the program itself (see coordinate system below).  
